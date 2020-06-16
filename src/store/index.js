@@ -13,13 +13,13 @@ const vuexPersist = new VuexPersist({
 
 Vue.use(Vuex, VueAxios, axios);
 
-new webpack.DefinePlugin({
-  API_URL: JSON.stringify(process.env.VUE_APP_API_URL),
-});
+// new webpack.DefinePlugin({
+//   API_URL: JSON.stringify(process.env.VUE_APP_API_URL),
+// });
 
 // add these before Vue is instantiated
 window.axios = axios;
-axios.defaults.baseURL = API_URL;
+axios.defaults.baseURL = process.env.VUE_APP_API_URL;
 
 const debug = process.env.NODE_ENV !== "production";
 var plugins = debug
