@@ -15,7 +15,7 @@ Vue.use(Vuex, VueAxios, axios);
 
 // add these before Vue is instantiated
 window.axios = axios;
-axios.defaults.baseURL = "http://127.0.0.1:5000/";
+axios.defaults.baseURL = process.env.API_URL;
 
 const debug = process.env.NODE_ENV !== "production";
 var plugins = debug
