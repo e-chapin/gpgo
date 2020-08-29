@@ -14,25 +14,19 @@
           {{ remaining | pluralize }} left
         </span>
         <div>
-          <a
-            v-on:click="setVisibility('all')"
-            :class="{ selected: getVisibility == 'all' }"
-            >All</a
-          >
+          <a v-on:click="setVisibility('all')" :class="{ selected: getVisibility == 'all' }">All</a>
         </div>
         <div>
           <a
             v-on:click="setVisibility('active')"
             :class="{ selected: getVisibility == 'active' }"
-            >Active</a
-          >
+          >Active</a>
         </div>
         <div>
           <a
             v-on:click="setVisibility('inactive')"
             :class="{ selected: getVisibility == 'inactive' }"
-            >Inactive</a
-          >
+          >Inactive</a>
         </div>
       </div>
     </footer>
@@ -44,7 +38,7 @@ import Todo from "./todo";
 export default {
   props: ["todos", "filters", "visibility"],
   components: {
-    Todo,
+    Todo
   },
 
   methods: {
@@ -53,7 +47,7 @@ export default {
     },
     setVisibility(visibility) {
       this.$emit("set-visibility", visibility);
-    },
+    }
   },
   computed: {
     filteredTodos: function() {
@@ -73,14 +67,14 @@ export default {
         this.todos.forEach(function(todo) {
           todo.active = value;
         });
-      },
-    },
+      }
+    }
   },
 
   filters: {
     pluralize: function(n) {
       return n === 1 ? "item" : "items";
-    },
-  },
+    }
+  }
 };
 </script>

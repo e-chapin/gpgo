@@ -28,7 +28,7 @@ var filters = {
     return todos.filter(function(todo) {
       return !todo.Active;
     });
-  },
+  }
 };
 
 import { mapState } from "vuex";
@@ -36,7 +36,7 @@ export default {
   name: "app",
   components: {
     TodoList,
-    CreateTodo,
+    CreateTodo
   },
 
   methods: {
@@ -45,14 +45,14 @@ export default {
     },
     setVisibility(visibility) {
       this.$store.dispatch("tds/setVisibility", visibility);
-    },
+    }
   },
 
   computed: {
     ...mapState({
-      visibility: (state) => state.tds.visibility,
-      todos: (state) => state.tds.todos,
-    }),
+      visibility: state => state.tds.visibility,
+      todos: state => state.tds.todos
+    })
   },
 
   created() {
@@ -63,9 +63,9 @@ export default {
     return {
       filters: filters,
       newTodo: "",
-      editedTodo: null,
+      editedTodo: null
     };
-  },
+  }
 };
 </script>
 
